@@ -75,7 +75,7 @@ Parameters
      
 | Name        | Type           | Description  |
 | ------------- |:-------------:|:-----|
-| fields      | string | A comma separated string indication fields to reutrn. Choices are **date**, **distance**, **duration**, **comment**|
+| fields      | string | A comma separated string indicating fields to reutrn. Choices are **date**, **distance**, **duration**, **comment**|
 | limit      | int      |   The number of activities to return, defaults to 50. |
 | offset | int      |    The offset from the beginning of the list to start retrieving activities from. |
      
@@ -144,12 +144,12 @@ Response
           HTTP/1.1 201
           
 
-     The code is also documented so that the person who reads it does not suffer
-     
-     **Finally, the surprise I promised:**
-          I always love to automate any repetitive work, I have hence created a chef script that could be run using
-          ```
-           rake deploy
-           ```
-          This script deploys to Heroku and runs the tests, reporting the results.
+The code is also documented so that the person who reads it does not suffer
+
+**Finally, the surprise I promised:**
+I always love to automate any repetitive work, I have hence created a chef script that could be run using
+```
+ rake deploy
+ ```
+This script deploys to Heroku and runs the tests, reporting the results.
 
