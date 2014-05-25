@@ -1,0 +1,78 @@
+<div id="landing">
+    <div id = "leftHalf">
+        <div id="activityStat"><a name="common"></a>
+
+        </div>
+        <div id="register_activity" class="landing form section">
+            <form id="actForm">
+                <label for="distance"></label>
+                <input id="distance" type="text" name="distance" placeholder="Distance (m)" value="">
+                
+                <label for="date"></label>
+                <input type="text" id="datepicker" name="date" placeholder=<%= Time.now.strftime("%m/%d/%Y") %>>
+                
+                <label for="duration"></label>
+                <input type="text" id="duration" name="duration" placeholder="Run duration (ex. 4m 30s or 37.5s)">
+
+                <label for="comment"></label>
+                <input id="comment" type="text" name="comment" placeholder="Comments (optional)" value="">
+            </form>
+                <button id="registerRun"> Brag about your running activity</button> 
+        </div>
+        <div id="registerResult">
+        </div>
+    </div>
+  
+    <div id="rightHalf">
+        <div id="activityList"><a name="common"></a>
+        </div>
+
+        <button id="latestActivities"> Get Latest Activities and Statistics </button>       
+    </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $("#datepicker").datepicker();
+  });
+    //Action performed when Brag about your running activity button is clicked.
+    $('#registerRun').click(function() {
+        var valuesToSubmit = $("#actForm").serialize();
+        //AJAX call that either notifies user of succes or failure of assing an activity
+        $.ajax({
+            url: "/activity/register", 
+            type: "POST", 
+            data: valuesToSubmit
+        }).success(function(){
+            //The activity was added.
+    		notify('Awesome run!', 'success');                         
+        }).fail(function(json){
+    		notify('Something went wrong with your request, please try again!', 'error');                         
+            });
+    });
+
+    //Action performed when Get Latest Activities and Statistics  button is clicked.
+    $('#latestActivities').click(function() {
+        //AJAX call that either returns a list of all Activities or an empty message
+        $.ajax({
+            url: "/activity/list_all", 
+            type: "GET", 
+        }).success(function(data){
+            //There exist activities.
+    		$('#activityList').html(data);
+        }).fail(function(json){
+            //There exist no activities.            
+    		$('#activityList').html("No Activities Exist");
+
+            });
+        $.ajax({
+            url: "/activity/statistics", 
+            type: "GET", 
+        }).success(function(data){
+            //There exist activities.
+    		$('#activityStat').html(data);
+        }).fail(function(json){
+            });
+    });
+</script>
+
+

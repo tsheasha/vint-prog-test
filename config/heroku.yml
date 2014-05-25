@@ -1,0 +1,3 @@
+#Settings for production server
+production:
+  app: vint-prog-test
