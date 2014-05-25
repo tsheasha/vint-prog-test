@@ -67,10 +67,79 @@ being part of the url, I found the HTTP header option to be more elegant and RES
 
 
      I have worked my hardest into meaning the API as RESTful as possible, maintaining RESTful URLs along the way.
+
+### API Documentation
+       List Running Activities
+          GET /api/activities
+          
+       Parameters
+          | Name        | Type           | Description  |
+          | ------------- |:-------------:| -----:|
+          | fields      | string | A comma separated string indication fields to reutrn. Choices are **date**, **distance**, **duration**, **comment**|
+          | limit      | int      |   The number of activities to return, defaults to 50. |
+          | offset | int      |    The offset from the beginning of the list to start retrieving activities from. |
      
+     Response
+     ```json
+          {
+             "activities":[
+                {
+                   "id":3,
+                   "date":"2014-05-27",
+                   "duration":"45.0",
+                   "distance":"700.0",
+                   "comment":"Sent from API"
+                },
+                {
+                   "id":2,
+                   "date":"2014-05-26",
+                   "duration":"60.0",
+                   "distance":"700.0",
+                   "comment":"Great progress!"
+                },
+                {
+                   "id":1,
+                   "date":"2014-05-25",
+                   "duration":"80.0",
+                   "distance":"700.0",
+                   "comment":"Started training!"
+                }
+             ]
+          }
+     ```
+          
+     Get Statistics of running activities
+          GET /api/activities/statistics
+          
+     Response
+     
+          ```json
+               {
+                  "data":{
+                     "total_count":3,
+                     "weekly_avg":3,
+                     "avg_duration":"61.6666666666666667",
+                     "avg_speed":"11.351351351351351351"
+                  }
+               }
+          ```
+          
+     Create a new running activity
+          POST /api/activities
+       Parameters
+          | Name        | Type           | Description  |
+          | ------------- |:-------------:| -----:|
+          | date      | string | Date of the run in the format mm/dd/yyyy |
+          | duration      | string      |   Duration of the run as a string in the format, "4m 30s" or "37.5s" |
+          | distance | string      |  Distance of run in metres. |
+          | comment | string      |  An optional comment on the run. |
+          
+     Response
+          HTTP/1.1 201
+          
      The code is also documented so that the person who reads it does not suffer
      
-     Finally, the surprise I promised:
+     **Finally, the surprise I promised:**
           I always love to automate any repetitive work, I have hence created a chef script that could be run using
           ```
            rake deploy
