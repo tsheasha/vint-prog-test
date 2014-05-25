@@ -1,7 +1,7 @@
 vint-prog-test
 ==============
 
-## The Vint Programming Test
+## The Vint Programming Test [Deployed Version](http://vint-prog-test.herokuapp.com/)
 
 ## Web Architecture
 
@@ -24,8 +24,6 @@ I saw it best to be in the ActivitiesHelper.
 and looks decent.
 
 * Unit tests using Rspec and automation tests using Capybara were used
-
-* [Deployed version](http://vint-prog-test.herokuapp.com/)
 
  
 ## API Architecture:
@@ -76,7 +74,7 @@ List Running Activities
 Parameters
      
 | Name        | Type           | Description  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:|:-----|
 | fields      | string | A comma separated string indication fields to reutrn. Choices are **date**, **distance**, **duration**, **comment**|
 | limit      | int      |   The number of activities to return, defaults to 50. |
 | offset | int      |    The offset from the beginning of the list to start retrieving activities from. |
@@ -135,7 +133,7 @@ Create a new running activity
 Parameters
      
 | Name        | Type           | Description  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:|:-----|
 | date      | string | Date of the run in the format mm/dd/yyyy |
 | duration      | string      |   Duration of the run as a string in the format, "4m 30s" or "37.5s" |
 | distance | string      |  Distance of run in metres. |
