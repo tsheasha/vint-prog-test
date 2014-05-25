@@ -72,7 +72,7 @@ being part of the url, I found the HTTP header option to be more elegant and RES
      
      Finally, the surprise I promised:
           I always love to automate any repetitive work, I have hence created a chef script that could be run using
-          ```ruby
+          ```
            rake deploy
            ```
           This script deploys to Heroku and runs the tests, reporting the results.
