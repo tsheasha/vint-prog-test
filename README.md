@@ -69,17 +69,20 @@ being part of the url, I found the HTTP header option to be more elegant and RES
      I have worked my hardest into meaning the API as RESTful as possible, maintaining RESTful URLs along the way.
 
 ### API Documentation
-       List Running Activities
-          GET /api/activities
+List Running Activities
           
-       Parameters
-          | Name        | Type           | Description  |
-          | ------------- |:-------------:| -----:|
-          | fields      | string | A comma separated string indication fields to reutrn. Choices are **date**, **distance**, **duration**, **comment**|
-          | limit      | int      |   The number of activities to return, defaults to 50. |
-          | offset | int      |    The offset from the beginning of the list to start retrieving activities from. |
+     GET /api/activities
+          
+Parameters
      
-     Response
+     | Name        | Type           | Description  |
+     | ------------- |:-------------:| -----:|
+     | fields      | string | A comma separated string indication fields to reutrn. Choices are **date**, **distance**, **duration**, **comment**|
+     | limit      | int      |   The number of activities to return, defaults to 50. |
+     | offset | int      |    The offset from the beginning of the list to start retrieving activities from. |
+     
+Response
+     
      ```json
           {
              "activities":[
@@ -108,8 +111,9 @@ being part of the url, I found the HTTP header option to be more elegant and RES
           }
      ```
           
-     Get Statistics of running activities
-          GET /api/activities/statistics
+Get Statistics of running activities
+     
+     GET /api/activities/statistics
           
      Response
      
@@ -124,19 +128,24 @@ being part of the url, I found the HTTP header option to be more elegant and RES
                }
           ```
           
-     Create a new running activity
-          POST /api/activities
-       Parameters
-          | Name        | Type           | Description  |
-          | ------------- |:-------------:| -----:|
-          | date      | string | Date of the run in the format mm/dd/yyyy |
-          | duration      | string      |   Duration of the run as a string in the format, "4m 30s" or "37.5s" |
-          | distance | string      |  Distance of run in metres. |
-          | comment | string      |  An optional comment on the run. |
+Create a new running activity
+     
+     POST /api/activities
+     
+Parameters
+     
+     | Name        | Type           | Description  |
+     | ------------- |:-------------:| -----:|
+     | date      | string | Date of the run in the format mm/dd/yyyy |
+     | duration      | string      |   Duration of the run as a string in the format, "4m 30s" or "37.5s" |
+     | distance | string      |  Distance of run in metres. |
+     | comment | string      |  An optional comment on the run. |
           
-     Response
+Response
+
           HTTP/1.1 201
           
+
      The code is also documented so that the person who reads it does not suffer
      
      **Finally, the surprise I promised:**
