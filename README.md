@@ -11,7 +11,7 @@ vint-prog-test
      The statistics can be reloaded by clicking on the respective button which 
      sends an AJAX call in order to refresh the statistics.
 
-..* A fat Activity Model, this holds all the business logic.
+* A fat Activity Model, this holds all the business logic.
 In the sense that all database dependent calculations are performed here.
 
 * A skinny controller, using the aforementioned Activity Model methods to get required results.
@@ -25,7 +25,7 @@ and looks decent.
 
 * Unit tests using Rspec and automation tests using Capybara were used
 
-.* [Deployed version](http://vint-prog-test.herokuapp.com/)
+* [Deployed version](http://vint-prog-test.herokuapp.com/)
 
  
 ## API Architecture:
@@ -40,7 +40,7 @@ and looks decent.
 
 
 
-..* I used a separate namespace for the api with versioning, to maintain a scalable system that can 
+* I used a separate namespace for the api with versioning, to maintain a scalable system that can 
 accommodate several versions. 
 
 * The choice of namespace was not my top preference, however ideally, it would have been better to make the api
