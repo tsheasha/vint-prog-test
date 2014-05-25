@@ -18,6 +18,10 @@ gem 'chronic_duration'
 gem 'numerizer'
 # Use Capistrano for deployment NOT used since not supported by Heroku
 #gem 'capistrano-rails', group: :production
+
+#Ruby API Builder Language
+gem 'rabl'
+gem 'oj'
 group :development do
     gem 'heroku_san'
     #Automated tests for the rails app

@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
-
-  #Set Route for listing acitvities function of ActivityController
-  get 'activity/list_all'
-  #Set Route for statistics on activities function of ActivityController
-  get 'activity/statistics'
-  #Set Route to add new activity function of ActivityController
-  post 'activity/register'
-  #Map root url to the index function of the ActivityController
-  get '/' => 'activity#index', :as => 'index'
+  #Map root url to the index function of the ActivitiesController
+  root 'activities#index'
+    
+  resources :activities do 
+    collection do
+        #Set Route for statistics  
+        get 'statistics'
+    end 
+  end 
+  namespace :api, :defaults => {:format => :json} do
+    namespace :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      resources :activities do
+        collection do
+          #Set Route for statistics  
+          get 'statistics'
+        end
+      end 
+    end
+  end
 end

@@ -3,6 +3,9 @@
         <div id="activityStat"><a name="common"></a>
 
         </div>
+        
+        <button id="displayStats"> Display latest Statistics</button> 
+        
         <div id="register_activity" class="landing form section">
             <form id="actForm">
                 <label for="distance"></label>
@@ -25,54 +28,71 @@
   
     <div id="rightHalf">
         <div id="activityList"><a name="common"></a>
+            <% if !@activities.blank? %>
+            <div id="wrapper">
+                <div id="columns">
+                    <% @activities.each do |activity| %> 
+                        <div class="pin">
+                            <p>
+                                <%= activity.distance %> m in <%= ChronicDuration.output(activity.duration, :format => :long) %>
+                            </p>
+                            <p>
+                                <%= activity.comment %> 
+                            </p>
+                            <p>
+                                | <%= activity.date.strftime("%B %d, %Y") %>
+                            </p>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <% else %>
+            <div id="wrapper">
+                <div id="columns">
+                    <div class="pin">
+                        <p>
+                            There are no activities yet, be the first!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+    
         </div>
-
-        <button id="latestActivities"> Get Latest Activities and Statistics </button>       
     </div>
 </div>
-<script type="text/javascript">
-  $(function() {
-    $("#datepicker").datepicker();
-  });
+<script type ="text/javascript">
+    $(document).ready(function(){
+        $("#displayStats").trigger("click");
+    });
+    $(function() {
+        $("#datepicker").datepicker();
+    });
     //Action performed when Brag about your running activity button is clicked.
     $('#registerRun').click(function() {
         var valuesToSubmit = $("#actForm").serialize();
         //AJAX call that either notifies user of succes or failure of assing an activity
         $.ajax({
-            url: "/activity/register", 
+            url: "/activities", 
             type: "POST", 
             data: valuesToSubmit
         }).success(function(){
             //The activity was added.
-    		notify('Awesome run!', 'success');                         
+                notify('Awesome run!', 'success');                         
         }).fail(function(json){
-    		notify('Something went wrong with your request, please try again!', 'error');                         
+                notify('Something went wrong with your request, please try again!', 'error');                         
             });
     });
 
     //Action performed when Get Latest Activities and Statistics  button is clicked.
-    $('#latestActivities').click(function() {
-        //AJAX call that either returns a list of all Activities or an empty message
+    $('#displayStats').click(function() {
         $.ajax({
-            url: "/activity/list_all", 
+            url: "/activities/statistics", 
             type: "GET", 
         }).success(function(data){
             //There exist activities.
-    		$('#activityList').html(data);
-        }).fail(function(json){
-            //There exist no activities.            
-    		$('#activityList').html("No Activities Exist");
-
-            });
-        $.ajax({
-            url: "/activity/statistics", 
-            type: "GET", 
-        }).success(function(data){
-            //There exist activities.
-    		$('#activityStat').html(data);
+        $('#activityStat').html(data);
         }).fail(function(json){
             });
     });
 </script>
-
-

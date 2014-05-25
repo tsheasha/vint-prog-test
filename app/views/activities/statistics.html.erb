@@ -6,7 +6,7 @@
             <% if key == :weekly_avg %>
                 <li><b><%= val %></b> Average runs per week</li>
             <% elsif key == :avg_duration %>
-                <li><b><%= number_with_precision(val, :percision => 2) %> seconds</b> Average run duration</li>
+                <li><b><%= ChronicDuration.output(val.round(2), :format =>:long) %></b> Average run duration</li>
             <% elsif key == :avg_speed %>
                 <li><b><%= number_with_precision(val, :percision => 2) %> m/s</b> Average speed of run</li>
             <% end %>

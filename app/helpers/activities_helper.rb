@@ -1,4 +1,4 @@
-module ActivityHelper
+module ActivitiesHelper
     #A helper function to clean the params for the registering a new
     #Activity
     def self.clean_params(params)
