@@ -1,3 +1,3 @@
-collection @activities, :root => "activities", :object_root => "activity"
+collection @activities, :root => "activities", :object_root => ""
 
 attributes :id, :date, :duration, :distance, :comment

@@ -22,6 +22,7 @@ gem 'numerizer'
 #Ruby API Builder Language
 gem 'rabl'
 gem 'oj'
+
 group :development do
     gem 'heroku_san'
     #Automated tests for the rails app
@@ -39,6 +40,9 @@ gem 'unicorn'
 #RSpec testing for Rails
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  #Generate instances of models for testing purposes
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 #Ruby version
 ruby "2.1.2"

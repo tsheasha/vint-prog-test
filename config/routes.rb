@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end 
   end 
   namespace :api, :defaults => {:format => :json} do
-    namespace :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+    namespace :v1, constraints: ApiConstraints.new(version: 1, default: :true), :path => "" do
       resources :activities do
         collection do
           #Set Route for statistics  
