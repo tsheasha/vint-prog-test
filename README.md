@@ -5,11 +5,11 @@ vint-prog-test
 
 ## Web Architecture
 
-     I have implemented the required features as per the specification. 
-     Users will enter the website using the given URL and view all running activities and statistics. 
-     Entering a new running activity is done through a form with a POST method. 
-     The statistics can be reloaded by clicking on the respective button which 
-     sends an AJAX call in order to refresh the statistics.
+I have implemented the required features as per the specification. 
+Users will enter the website using the given URL and view all running activities and statistics. 
+Entering a new running activity is done through a form with a POST method. 
+The statistics can be reloaded by clicking on the respective button which 
+sends an AJAX call in order to refresh the statistics.
 
 * A fat Activity Model, this holds all the business logic.
 In the sense that all database dependent calculations are performed here.
@@ -28,13 +28,13 @@ and looks decent.
  
 ## API Architecture:
 
-     This part was by far the most interesting part of the test, designing a RESTful API 
-     and its URLs is one of the most controversial topics in my opinion. However, 
-     I tried my best to produce an API that I feel comfortable with. 
-     I will explain the reasoning behind the architecture of each step. 
-     I have done a lot of discussions with myself regarding the architecture, 
-     however, these are too long to write down, so if you want we can set up a
-     Skype call to discuss them and I can share with you my thoughts during the process.
+This part was by far the most interesting part of the test, designing a RESTful API 
+and its URLs is one of the most controversial topics in my opinion. However, 
+I tried my best to produce an API that I feel comfortable with. 
+I will explain the reasoning behind the architecture of each step. 
+I have done a lot of discussions with myself regarding the architecture, 
+however, these are too long to write down, so if you want we can set up a
+Skype call to discuss them and I can share with you my thoughts during the process.
 
 
 
@@ -147,7 +147,7 @@ Response
 The code is also documented so that the person who reads it does not suffer
 
 **Finally, the surprise I promised:**
-I always love to automate any repetitive work, I have hence created a chef script that could be run using
+I always love to automate stuff, I have hence created a chef script that could be run using
 ```
  rake deploy
  ```
